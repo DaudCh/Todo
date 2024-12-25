@@ -1,6 +1,19 @@
+// Add the "use client" directive at the top to make this a Client Component
+'use client';
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation"; // Import from next/navigation
 import Image from "next/image";
 
 export default function Home() {
+  const router = useRouter();
+
+  // Redirect to the login or register page as soon as the component mounts
+  useEffect(() => {
+    // Replace '/auth/login' with your actual login path
+    router.push('/auth/login');
+  }, [router]);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
